@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light">
   <meta name="theme-color" content="#fffce8">
 
@@ -13,6 +13,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..1000;1,9..40,300..1000&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <script src="layout.js"></script>
 </head>
 <body class="page-home">
   <nav class="site-nav" aria-label="Main navigation">
@@ -62,9 +63,8 @@
     </svg>
   </div>
 
-  <div class="scroll-shadow" id="scroll-shadow" aria-hidden="true"></div>
-
-  <main>
+  <div class="page-scroll" id="page-scroll">
+    <main>
     <header class="hero" id="top">
       <div class="hero-intro">
         <h1 class="name name-headline">
@@ -123,7 +123,9 @@
         <a href="#" data-email-compose class="contact-btn">Send a message</a>
       </div>
     </div>
-  </main>
+    </main>
+    <div class="scroll-shadow" id="scroll-shadow" aria-hidden="true"></div>
+  </div>
 
   <script src="decorations.js"></script>
   <script src="email.js"></script>
@@ -147,17 +149,18 @@
       }
 
       var shadow = document.getElementById("scroll-shadow");
-      if (!shadow) return;
+      var scrollRoot = document.getElementById("page-scroll");
+      if (!shadow || !scrollRoot) return;
 
       function updateShadow() {
-        var y = window.scrollY;
+        var y = scrollRoot.scrollTop;
         var start = 40;
         var end = 220;
         var opacity = Math.min(Math.max((y - start) / (end - start), 0), 1);
         shadow.style.opacity = String(opacity);
       }
 
-      window.addEventListener("scroll", updateShadow, { passive: true });
+      scrollRoot.addEventListener("scroll", updateShadow, { passive: true });
       updateShadow();
     })();
   </script>

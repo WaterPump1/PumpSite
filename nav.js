@@ -3,6 +3,7 @@
   if (!nav) return;
 
   var links = nav.querySelectorAll(".site-nav-link");
+  var scrollRoot = document.getElementById("page-scroll");
   var isGalleryPage = window.location.pathname.indexOf("gallery") !== -1;
   var isIndexPage = !isGalleryPage && !window.location.pathname.includes("contact");
 
@@ -45,30 +46,46 @@
         e.preventDefault();
         var target = document.querySelector(href);
         if (target) {
-          target.scrollIntoView({ behavior: "smooth" });
+          target.scrollIntoView({ behavior: "smooth", block: "start" });
           history.pushState(null, "", href);
         } else if (href === "#top") {
-          window.scrollTo({ top: 0, behavior: "smooth" });
+          if (scrollRoot) {
+            scrollRoot.scrollTo({ top: 0, behavior: "smooth" });
+          } else {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          }
           history.pushState(null, "", href);
         }
       }
     });
   });
 
-  if (!isIndexPage) return;
+  if (!isIndexPage || !scrollRoot) return;
 
   function onScroll() {
-    var scrollY = window.scrollY + nav.offsetHeight + 100;
+    var scrollY = scrollRoot.scrollTop + nav.offsetHeight + 100;
     var current = "main";
     var contactEl = document.getElementById("contact");
 
-    if (contactEl && contactEl.offsetTop <= scrollY) {
-      current = "contact";
+    if (contactEl) {
+      var contactTop = contactEl.getBoundingClientRect().top - scrollRoot.getBoundingClientRect().top + scrollRoot.scrollTop;
+      if (contactTop <= scrollY) {
+        current = "contact";
+      }
     }
 
     setActive(current);
   }
 
-  window.addEventListener("scroll", onScroll, { passive: true });
+  scrollRoot.addEventListener("scroll", onScroll, { passive: true });
   onScroll();
+
+  if (location.hash) {
+    var hashTarget = document.querySelector(location.hash);
+    if (hashTarget) {
+      requestAnimationFrame(function () {
+        hashTarget.scrollIntoView({ block: "start" });
+      });
+    }
+  }
 })();

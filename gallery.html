@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light">
   <meta name="theme-color" content="#fffce8">
 
@@ -13,6 +13,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..1000;1,9..40,300..1000&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <script src="layout.js"></script>
 </head>
 <body class="page-gallery">
   <nav class="site-nav" aria-label="Main navigation">
@@ -36,7 +37,8 @@
     <span class="frame-gem frame-gem-right"></span>
   </div>
 
-  <main class="gallery-page gallery-page--grid">
+  <div class="page-scroll page-scroll--gallery" id="page-scroll">
+    <main class="gallery-page gallery-page--grid">
     <a href="index.html" class="back-link">← Home</a>
 
     <header class="gallery-page-header">
@@ -48,6 +50,7 @@
       <div class="gallery-grid gallery-grid--page" data-gallery></div>
     </div>
   </main>
+  </div>
 
   <div class="lightbox" id="lightbox" hidden aria-hidden="true">
     <button type="button" class="lightbox-close" id="lightbox-close" aria-label="Close gallery view">&times;</button>
