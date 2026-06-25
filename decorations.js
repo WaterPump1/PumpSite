@@ -60,12 +60,12 @@
           '<path d="M20 44 C24 48 28 50 32 50 C36 50 40 48 44 44" opacity=".45"/>' +
           '<path d="M24 12 L28 14 M36 14 L40 12" opacity=".4"/>' +
         "</g>" +
-        '<g id="sketch-nut" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">' +
-          '<path d="M32 10l14 8v16l-14 8-14-8V18z"/>' +
-          '<path d="M32 10l-2 1 2 2 2-2z" opacity=".45"/>' +
-          '<circle cx="32" cy="32" r="7"/>' +
-          '<path d="M28 32h8" opacity=".55"/>' +
-          '<path d="M32 28v8" opacity=".35"/>' +
+        '<g id="sketch-nut" stroke-linecap="round" stroke-linejoin="round">' +
+          '<path fill="#b8bdc4" stroke="#6f757d" stroke-width="2" d="M32 9 L48.5 18.5 V35.5 L32 45 L15.5 35.5 V18.5 Z"/>' +
+          '<path fill="none" stroke="#8f959d" stroke-width="1.4" d="M32 9 L32 17 M48.5 18.5 L41 22.5 M48.5 35.5 L41 31.5 M32 45 L32 37 M15.5 35.5 L23 31.5 M15.5 18.5 L23 22.5" opacity=".55"/>' +
+          '<circle cx="32" cy="27" r="9" fill="none" stroke="#6f757d" stroke-width="2.2"/>' +
+          '<circle cx="32" cy="27" r="5.5" fill="none" stroke="#9aa0a8" stroke-width="1.1" opacity=".45"/>' +
+          '<path fill="none" stroke="#dfe2e6" stroke-width="1.2" d="M24 15 L28 17" opacity=".7"/>' +
         "</g>" +
         '<g id="sketch-bolt" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">' +
           '<path d="M24 14h16l-2 8H26z"/>' +

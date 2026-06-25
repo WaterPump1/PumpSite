@@ -781,10 +781,6 @@ button.card-link {
   bottom: calc(var(--frame-inset) + var(--mountain-height));
 }
 
-.page-home .backdrop-doodles .doodle-tree {
-  display: none;
-}
-
 .page-frame {
   position: fixed;
   inset: var(--frame-inset);
@@ -931,11 +927,17 @@ button.card-link {
 .doodle-5,
 .doodle-11,
 .doodle-14 {
-  color: var(--doodle-soft);
+  color: #8a9098;
 }
 
 .doodle-bolt {
   color: #bcc2cc;
+}
+
+.doodle-nut {
+  color: #8a9098;
+  width: calc(var(--size) * var(--doodle-scale) * 1.4);
+  height: calc(var(--size) * var(--doodle-scale) * 1.4);
 }
 
 .doodle svg {
@@ -943,11 +945,6 @@ button.card-link {
   height: 100%;
   display: block;
   filter: url(#sketch-wobble);
-}
-
-.doodle-nut {
-  width: calc(var(--size) * var(--doodle-scale) * 1.4);
-  height: calc(var(--size) * var(--doodle-scale) * 1.4);
 }
 
 .doodle-drift-a {
@@ -1205,8 +1202,6 @@ button.card-link {
     gap: 0.45rem;
   }
 
-  .doodle-3,
-  .doodle-7,
   .doodle-9,
   .doodle-11 {
     display: none;
