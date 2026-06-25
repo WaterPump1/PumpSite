@@ -1033,6 +1033,43 @@ button.card-link {
   50% { transform: translate(-22px, -34px) rotate(-10deg); }
 }
 
+@keyframes doodle-drift-a-mobile {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  25% { transform: translate(12px, -16px) rotate(6deg); }
+  50% { transform: translate(-8px, -26px) rotate(-4deg); }
+  75% { transform: translate(10px, -12px) rotate(7deg); }
+}
+
+@keyframes doodle-drift-b-mobile {
+  0%, 100% { transform: translate(0, 0) rotate(8deg); }
+  33% { transform: translate(-14px, 10px) rotate(-3deg); }
+  66% { transform: translate(9px, 18px) rotate(12deg); }
+}
+
+@keyframes doodle-drift-c-mobile {
+  0%, 100% { transform: translate(0, 0) rotate(-6deg); }
+  20% { transform: translate(16px, 7px) rotate(3deg); }
+  55% { transform: translate(-11px, -14px) rotate(-9deg); }
+  80% { transform: translate(6px, -20px) rotate(2deg); }
+}
+
+@keyframes doodle-drift-d-mobile {
+  0%, 100% { transform: translate(0, 0) rotate(4deg); }
+  40% { transform: translate(-10px, -18px) rotate(10deg); }
+  70% { transform: translate(13px, -8px) rotate(-5deg); }
+}
+
+@keyframes doodle-drift-e-mobile {
+  0%, 100% { transform: translate(0, 0) rotate(-10deg); }
+  35% { transform: translate(14px, -12px) rotate(6deg); }
+  60% { transform: translate(-28px, 10px) rotate(-12deg); }
+}
+
+@keyframes doodle-drift-f-mobile {
+  0%, 100% { transform: translate(0, 0) rotate(5deg); }
+  50% { transform: translate(-12px, -18px) rotate(-7deg); }
+}
+
 @media (max-width: 640px) {
   :root {
     --frame-inset: 10px;
@@ -1040,6 +1077,7 @@ button.card-link {
     --nav-offset: 1.15rem;
     --nav-bar-height: 2.85rem;
     --mountain-height: 155px;
+    --doodle-scale: 0.72;
     --viewport-height: 100svh;
     --scroll-viewport-height: calc(
       100svh -
@@ -1207,8 +1245,45 @@ button.card-link {
     display: none;
   }
 
-  .doodle {
-    animation: doodle-fade-in 1.15s var(--ease-out-expo) 0.25s forwards !important;
+  .doodle-nut {
+    width: calc(var(--size) * var(--doodle-scale) * 1.15);
+    height: calc(var(--size) * var(--doodle-scale) * 1.15);
+  }
+
+  .doodle-drift-a {
+    animation:
+      doodle-fade-in 1.15s var(--ease-out-expo) 0.25s forwards,
+      doodle-drift-a-mobile 26s ease-in-out -4s infinite;
+  }
+
+  .doodle-drift-b {
+    animation:
+      doodle-fade-in 1.15s var(--ease-out-expo) 0.25s forwards,
+      doodle-drift-b-mobile 22s ease-in-out -11s infinite;
+  }
+
+  .doodle-drift-c {
+    animation:
+      doodle-fade-in 1.15s var(--ease-out-expo) 0.25s forwards,
+      doodle-drift-c-mobile 28s ease-in-out -7s infinite;
+  }
+
+  .doodle-drift-d {
+    animation:
+      doodle-fade-in 1.15s var(--ease-out-expo) 0.25s forwards,
+      doodle-drift-d-mobile 21s ease-in-out -15s infinite;
+  }
+
+  .doodle-drift-e {
+    animation:
+      doodle-fade-in 1.15s var(--ease-out-expo) 0.25s forwards,
+      doodle-drift-e-mobile 24s ease-in-out -2s infinite;
+  }
+
+  .doodle-drift-f {
+    animation:
+      doodle-fade-in 1.15s var(--ease-out-expo) 0.25s forwards,
+      doodle-drift-f-mobile 20s ease-in-out -19s infinite;
   }
 }
 
@@ -1219,10 +1294,6 @@ button.card-link {
 
   .page-scroll {
     scroll-behavior: auto;
-  }
-
-  .doodle {
-    animation: doodle-fade-in 1.15s var(--ease-out-expo) 0.25s forwards !important;
   }
 }
 
