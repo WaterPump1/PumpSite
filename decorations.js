@@ -51,14 +51,42 @@
           '<feTurbulence type="fractalNoise" baseFrequency="0.045" numOctaves="2" seed="3" result="noise"/>' +
           '<feDisplacementMap in="SourceGraphic" in2="noise" scale="1.4" xChannelSelector="R" yChannelSelector="G"/>' +
         "</filter>" +
-        '<g id="sketch-tire" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">' +
-          '<circle cx="32" cy="32" r="21"/>' +
-          '<circle cx="32" cy="32" r="14"/>' +
-          '<circle cx="32" cy="32" r="5" opacity=".55"/>' +
-          '<path d="M32 11 L32 18 M32 46 L32 53 M11 32 L18 32 M46 32 L53 32"/>' +
-          '<path d="M17 17 L22 22 M43 43 L48 48 M43 17 L48 22 M17 43 L22 48"/>' +
-          '<path d="M20 44 C24 48 28 50 32 50 C36 50 40 48 44 44" opacity=".45"/>' +
-          '<path d="M24 12 L28 14 M36 14 L40 12" opacity=".4"/>' +
+        '<g id="sketch-tire" stroke-linecap="round" stroke-linejoin="round">' +
+          '<circle cx="32" cy="32" r="21" fill="none" stroke="currentColor" stroke-width="2.2"/>' +
+          '<circle cx="32" cy="32" r="15.8" fill="none" stroke="currentColor" stroke-width="1.5" opacity=".5"/>' +
+          '<g fill="currentColor" fill-opacity=".2" stroke="currentColor" stroke-width="1.4">' +
+            '<path d="M28 10.5h8l1.2 7.2H26.8Z"/>' +
+            '<path d="M28 10.5h8l1.2 7.2H26.8Z" transform="rotate(30 32 32)"/>' +
+            '<path d="M28 10.5h8l1.2 7.2H26.8Z" transform="rotate(60 32 32)"/>' +
+            '<path d="M28 10.5h8l1.2 7.2H26.8Z" transform="rotate(90 32 32)"/>' +
+            '<path d="M28 10.5h8l1.2 7.2H26.8Z" transform="rotate(120 32 32)"/>' +
+            '<path d="M28 10.5h8l1.2 7.2H26.8Z" transform="rotate(150 32 32)"/>' +
+            '<path d="M28 10.5h8l1.2 7.2H26.8Z" transform="rotate(180 32 32)"/>' +
+            '<path d="M28 10.5h8l1.2 7.2H26.8Z" transform="rotate(210 32 32)"/>' +
+            '<path d="M28 10.5h8l1.2 7.2H26.8Z" transform="rotate(240 32 32)"/>' +
+            '<path d="M28 10.5h8l1.2 7.2H26.8Z" transform="rotate(270 32 32)"/>' +
+            '<path d="M28 10.5h8l1.2 7.2H26.8Z" transform="rotate(300 32 32)"/>' +
+            '<path d="M28 10.5h8l1.2 7.2H26.8Z" transform="rotate(330 32 32)"/>' +
+          "</g>" +
+          '<g fill="none" stroke="currentColor" stroke-width="1.6" opacity=".7">' +
+            '<path d="M29.5 12.5h5l.6 3.8h-6.2Z"/>' +
+            '<path d="M29.5 12.5h5l.6 3.8h-6.2Z" transform="rotate(60 32 32)"/>' +
+            '<path d="M29.5 12.5h5l.6 3.8h-6.2Z" transform="rotate(120 32 32)"/>' +
+            '<path d="M29.5 12.5h5l.6 3.8h-6.2Z" transform="rotate(180 32 32)"/>' +
+            '<path d="M29.5 12.5h5l.6 3.8h-6.2Z" transform="rotate(240 32 32)"/>' +
+            '<path d="M29.5 12.5h5l.6 3.8h-6.2Z" transform="rotate(300 32 32)"/>' +
+          "</g>" +
+          '<circle cx="32" cy="32" r="12.2" fill="none" stroke="currentColor" stroke-width="2"/>' +
+          '<circle cx="32" cy="32" r="9.2" fill="none" stroke="currentColor" stroke-width="1.2" opacity=".45"/>' +
+          '<g fill="currentColor" stroke="none">' +
+            '<circle cx="32" cy="25" r="2"/>' +
+            '<circle cx="38.66" cy="29.84" r="2"/>' +
+            '<circle cx="36.13" cy="37.67" r="2"/>' +
+            '<circle cx="27.87" cy="37.67" r="2"/>' +
+            '<circle cx="25.34" cy="34.16" r="2"/>' +
+          "</g>" +
+          '<circle cx="32" cy="32" r="3.6" fill="none" stroke="currentColor" stroke-width="1.8"/>' +
+          '<circle cx="32" cy="32" r="1.4" fill="currentColor" stroke="none" opacity=".35"/>' +
         "</g>" +
         '<g id="sketch-nut" stroke-linecap="round" stroke-linejoin="round">' +
           '<path fill="#b8bdc4" stroke="#6f757d" stroke-width="2" d="M32 9 L48.5 18.5 V35.5 L32 45 L15.5 35.5 V18.5 Z"/>' +
