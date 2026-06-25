@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="color-scheme" content="light">
   <meta name="theme-color" content="#fffce8">
 
@@ -14,9 +14,9 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..1000;1,9..40,300..1000&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="page-home">
   <nav class="site-nav" aria-label="Main navigation">
-    <a href="#top" class="site-nav-link">Main page</a>
+    <a href="#top" class="site-nav-link">Name</a>
     <a href="gallery.html" class="site-nav-link">Gallery</a>
     <a href="#contact" class="site-nav-link">Contact</a>
   </nav>
@@ -36,17 +36,50 @@
     <span class="frame-gem frame-gem-right"></span>
   </div>
 
+  <div class="mountain-scape" aria-hidden="true">
+    <svg class="mountain-scape-svg" viewBox="0 0 1200 300" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <filter id="mountain-wobble" x="-4%" y="-4%" width="108%" height="108%">
+          <feTurbulence type="fractalNoise" baseFrequency="0.034" numOctaves="2" seed="8" result="noise"/>
+          <feDisplacementMap in="SourceGraphic" in2="noise" scale="2.2" xChannelSelector="R" yChannelSelector="G"/>
+        </filter>
+      </defs>
+      <path class="mountain-layer mountain-layer--far" d="M0 300V195 L95 145 210 210 340 118 470 188 610 92 760 168 905 108 1045 185 1200 138V300Z"/>
+      <path class="mountain-layer mountain-layer--mid" d="M0 300V228 L165 168 310 248 455 132 600 215 755 118 905 228 1085 162 1200 218V300Z"/>
+      <path class="mountain-layer mountain-layer--near" d="M0 300V252 L220 198 390 272 545 188 715 258 885 205 1065 272 1200 232V300Z"/>
+      <g class="mountain-sketch" filter="url(#mountain-wobble)" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path stroke="#c4a03a" stroke-width="1.4" opacity="0.38" d="M0 195 L95 145 210 210 340 118 470 188 610 92 760 168 905 108 1045 185 1200 138"/>
+        <path stroke="#c4a03a" stroke-width="1.3" opacity="0.34" d="M0 228 L165 168 310 248 455 132 600 215 755 118 905 228 1085 162 1200 218"/>
+        <path stroke="#b8942e" stroke-width="1.2" opacity="0.32" d="M0 252 L220 198 390 272 545 188 715 258 885 205 1065 272 1200 232"/>
+        <g stroke="#b8942e" stroke-width="0.9" opacity="0.14">
+          <path d="M348 118 L362 142 M356 124 L370 148 M364 130 L378 154"/>
+          <path d="M602 92 L616 116 M610 98 L624 122 M618 104 L632 128"/>
+          <path d="M449 132 L463 156 M457 138 L471 162 M465 144 L479 168"/>
+          <path d="M749 118 L763 142 M757 124 L771 148"/>
+          <path d="M538 188 L552 212 M546 194 L560 218"/>
+        </g>
+      </g>
+    </svg>
+  </div>
+
   <div class="scroll-shadow" id="scroll-shadow" aria-hidden="true"></div>
 
   <main>
     <header class="hero" id="top">
-      <h1 class="name name-headline">
-        <span class="name-words">
-          <span class="name-word">Dylan</span><span class="name-word">Gaetano</span><span class="name-word">Combatti</span>
-        </span>
-      </h1>
-      <p class="tagline">Main page · Gallery · Contact</p>
-      <p class="scroll-hint">Scroll down</p>
+      <div class="hero-intro">
+        <h1 class="name name-headline">
+          <span class="name-words">
+            <span class="name-word">Dylan</span><span class="name-word">Gaetano</span><span class="name-word">Combatti</span>
+          </span>
+        </h1>
+        <p class="tagline">Name · Gallery · Contact</p>
+      </div>
+      <div class="hero-scroll">
+        <p class="scroll-hint">Scroll down</p>
+        <blockquote class="hero-quote">
+          <p>“keep going until it works”</p>
+        </blockquote>
+      </div>
     </header>
 
     <div class="links-panel">

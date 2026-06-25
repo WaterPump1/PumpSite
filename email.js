@@ -1,6 +1,7 @@
 (function () {
   var EMAIL = "Kelownaphotograph@gmail.com";
   var SUBJECT = "Website message";
+  var isMobile = /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent);
 
   function gmailComposeUrl() {
     return (
@@ -11,10 +12,24 @@
     );
   }
 
+  function mailtoUrl() {
+    return (
+      "mailto:" +
+      encodeURIComponent(EMAIL) +
+      "?subject=" +
+      encodeURIComponent(SUBJECT)
+    );
+  }
+
   document.querySelectorAll("[data-email-compose]").forEach(function (el) {
-    el.setAttribute("href", gmailComposeUrl());
-    el.setAttribute("target", "_blank");
-    el.setAttribute("rel", "noopener noreferrer");
+    el.setAttribute("href", isMobile ? mailtoUrl() : gmailComposeUrl());
+    if (!isMobile) {
+      el.setAttribute("target", "_blank");
+      el.setAttribute("rel", "noopener noreferrer");
+    } else {
+      el.removeAttribute("target");
+      el.removeAttribute("rel");
+    }
   });
 
   document.querySelectorAll("[data-email-copy]").forEach(function (btn) {
