@@ -75,14 +75,8 @@
         <p class="tagline">Name · Gallery · Contact</p>
       </div>
       <div class="hero-scroll">
+        <p class="hero-welcome">Hey! You found my page — thanks for visiting. If you have any questions, feel free to reach out!</p>
         <p class="scroll-hint">Scroll down</p>
-        <div class="hero-quote-carousel" aria-label="Quotes">
-          <button type="button" class="quote-nav quote-nav--prev" aria-label="Previous quote">←</button>
-          <blockquote class="hero-quote">
-            <p id="quote-text" aria-live="polite">“keep going until it works”</p>
-          </blockquote>
-          <button type="button" class="quote-nav quote-nav--next" aria-label="Next quote">→</button>
-        </div>
       </div>
     </header>
 
@@ -167,72 +161,6 @@
 
       scrollRoot.addEventListener("scroll", updateShadow, { passive: true });
       updateShadow();
-    })();
-
-    (function () {
-      var quotes = [
-        "keep going until it works",
-        "Bees are cool",
-        "i like birds",
-        "I Can fix it"
-      ];
-      var index = 0;
-      var textEl = document.getElementById("quote-text");
-      var prevBtn = document.querySelector(".quote-nav--prev");
-      var nextBtn = document.querySelector(".quote-nav--next");
-      var carousel = document.querySelector(".hero-quote-carousel");
-      if (!textEl || !prevBtn || !nextBtn) return;
-
-      var timer;
-      var changing = false;
-      var interval = 5000;
-      var fadeMs = 400;
-
-      function showQuote(nextIndex) {
-        if (changing) return;
-        changing = true;
-        index = (nextIndex + quotes.length) % quotes.length;
-        textEl.classList.add("is-changing");
-
-        setTimeout(function () {
-          textEl.textContent = "\u201C" + quotes[index] + "\u201D";
-          textEl.classList.remove("is-changing");
-          changing = false;
-        }, fadeMs);
-      }
-
-      function nextQuote() {
-        showQuote(index + 1);
-        resetTimer();
-      }
-
-      function prevQuote() {
-        showQuote(index - 1);
-        resetTimer();
-      }
-
-      function resetTimer() {
-        clearInterval(timer);
-        timer = setInterval(nextQuote, interval);
-      }
-
-      prevBtn.addEventListener("click", prevQuote);
-      nextBtn.addEventListener("click", nextQuote);
-
-      if (carousel) {
-        carousel.addEventListener("mouseenter", function () {
-          clearInterval(timer);
-        });
-        carousel.addEventListener("mouseleave", resetTimer);
-        carousel.addEventListener("focusin", function () {
-          clearInterval(timer);
-        });
-        carousel.addEventListener("focusout", function (e) {
-          if (!carousel.contains(e.relatedTarget)) resetTimer();
-        });
-      }
-
-      resetTimer();
     })();
   </script>
 </body>

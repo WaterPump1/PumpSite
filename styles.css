@@ -302,20 +302,20 @@ header .name-headline {
 header .name-words .name-word {
   display: inline-block;
   opacity: 0;
-  animation: name-word-in 1.5s var(--ease-spring) forwards;
+  animation: name-word-in 0.95s var(--ease-spring) forwards;
   will-change: transform, opacity, filter;
 }
 
 header .name-word:nth-child(1) {
-  animation-delay: 0.45s;
+  animation-delay: 0.2s;
 }
 
 header .name-word:nth-child(2) {
-  animation-delay: 0.85s;
+  animation-delay: 0.38s;
 }
 
 header .name-word:nth-child(3) {
-  animation-delay: 1.25s;
+  animation-delay: 0.56s;
 }
 
 header .name-headline::after {
@@ -333,16 +333,16 @@ header .name-headline::after {
   );
   transform-origin: center;
   opacity: 0;
-  animation: name-line 1.55s var(--ease-out-expo) 1.55s forwards;
+  animation: name-line 0.85s var(--ease-out-expo) 0.78s forwards;
 }
 
 section h2 {
   opacity: 0;
-  animation: rise-in 1.15s var(--ease-out-expo) forwards;
+  animation: rise-in 0.8s var(--ease-out-expo) forwards;
 }
 
 section:nth-of-type(1) h2 {
-  animation-delay: 3s;
+  animation-delay: 2.05s;
 }
 
 section:nth-of-type(1) ul li:nth-child(1),
@@ -351,27 +351,27 @@ section:nth-of-type(2) h2,
 section:nth-of-type(2) ul li:nth-child(1),
 section:nth-of-type(2) ul li:nth-child(2) {
   opacity: 0;
-  animation: rise-in 1.1s var(--ease-out-expo) forwards;
+  animation: rise-in 0.75s var(--ease-out-expo) forwards;
 }
 
 section:nth-of-type(1) ul li:nth-child(1) {
-  animation-delay: 3.52s;
+  animation-delay: 2.3s;
 }
 
 section:nth-of-type(1) ul li:nth-child(2) {
-  animation-delay: 4.06s;
+  animation-delay: 2.55s;
 }
 
 section:nth-of-type(2) h2 {
-  animation-delay: 4.62s;
+  animation-delay: 2.8s;
 }
 
 section:nth-of-type(2) ul li:nth-child(1) {
-  animation-delay: 5.16s;
+  animation-delay: 3.05s;
 }
 
 section:nth-of-type(2) ul li:nth-child(2) {
-  animation-delay: 5.72s;
+  animation-delay: 3.3s;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -389,8 +389,7 @@ section:nth-of-type(2) ul li:nth-child(2) {
   header .name-headline::after,
   header .tagline,
   .scroll-hint,
-  .hero-quote-carousel,
-  .hero-quote,
+  .hero-welcome,
   section h2,
   section ul li,
   .gallery-item {
@@ -414,10 +413,6 @@ section:nth-of-type(2) ul li:nth-child(2) {
 
   header .name-headline::after {
     transform: scaleX(1);
-  }
-
-  .hero-quote p {
-    transition: none;
   }
 
   header .tagline {
@@ -515,10 +510,25 @@ main {
   transition: opacity 0.15s ease-out;
 }
 
+.hero-welcome {
+  margin: 0;
+  max-width: 22em;
+  opacity: 0;
+  animation: tagline-in 0.9s var(--ease-out-expo) 1.45s forwards;
+  font-family: "DM Serif Display", "Georgia", serif;
+  font-size: clamp(1.15rem, 3.4vw, 1.45rem);
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.45;
+  letter-spacing: 0.01em;
+  color: var(--text-muted);
+  text-align: center;
+}
+
 .scroll-hint {
   opacity: 0;
-  animation: tagline-in 1.4s var(--ease-out-expo) 3.1s forwards;
-  margin-top: 0;
+  animation: tagline-in 0.9s var(--ease-out-expo) 1.65s forwards;
+  margin-top: clamp(1.25rem, 3.5vw, 1.75rem);
   font-size: 0.85rem;
   font-weight: 600;
   letter-spacing: 0.2em;
@@ -532,87 +542,7 @@ main {
   margin-top: 0.55rem;
   font-size: 1.1rem;
   letter-spacing: 0;
-  animation: scroll-bounce 1.7s ease-in-out 3.5s infinite;
-}
-
-.hero-quote-carousel {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: clamp(0.5rem, 2.5vw, 1rem);
-  width: 100%;
-  margin-top: clamp(1.25rem, 3.5vw, 1.85rem);
-  opacity: 0;
-  animation: tagline-in 1.4s var(--ease-out-expo) 3.65s forwards;
-}
-
-.hero-quote {
-  flex: 1;
-  min-width: 0;
-  margin: 0;
-  padding: 0;
-  border: none;
-  max-width: 16em;
-}
-
-.hero-quote p {
-  margin: 0;
-  font-family: "DM Serif Display", "Georgia", serif;
-  font-size: clamp(1.45rem, 4.8vw, 2.25rem);
-  font-style: italic;
-  font-weight: 400;
-  line-height: 1.35;
-  letter-spacing: 0.01em;
-  color: var(--text-muted);
-  transition: opacity 0.4s var(--ease-smooth);
-}
-
-.hero-quote p.is-changing {
-  opacity: 0;
-}
-
-.quote-nav {
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 2.35rem;
-  height: 2.35rem;
-  padding: 0;
-  border: 1px solid var(--border);
-  border-radius: 50%;
-  background: rgba(255, 252, 232, 0.9);
-  color: var(--text-muted);
-  font-size: 1.1rem;
-  line-height: 1;
-  cursor: pointer;
-  box-shadow: 0 2px 8px var(--shadow-soft);
-  transition:
-    border-color var(--t-micro),
-    background var(--t-micro),
-    color var(--t-micro),
-    transform var(--t-micro);
-}
-
-.quote-nav:hover {
-  border-color: var(--accent-border);
-  background: var(--bg-hover);
-  color: var(--text);
-}
-
-.quote-nav:active {
-  transform: scale(0.94);
-}
-
-.quote-nav:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 3px;
-}
-
-@media (hover: hover) and (pointer: fine) {
-  .quote-nav:hover {
-    transform: translateY(-1px);
-  }
+  animation: scroll-bounce 1.7s ease-in-out 1.95s infinite;
 }
 
 @keyframes scroll-bounce {
@@ -654,7 +584,7 @@ main {
 
 header .tagline {
   opacity: 0;
-  animation: tagline-in 1.4s var(--ease-out-expo) 2.55s forwards;
+  animation: tagline-in 0.9s var(--ease-out-expo) 1.1s forwards;
   will-change: transform, opacity, letter-spacing;
   font-size: clamp(1.15rem, 3.4vw, 1.4rem);
   font-weight: 500;
@@ -1022,37 +952,37 @@ button.card-link {
 
 .doodle-drift-a {
   animation:
-    doodle-fade-in 2s var(--ease-out-expo) 0.6s forwards,
+    doodle-fade-in 1.15s var(--ease-out-expo) 0.25s forwards,
     doodle-drift-a 29s ease-in-out -4s infinite;
 }
 
 .doodle-drift-b {
   animation:
-    doodle-fade-in 2s var(--ease-out-expo) 0.6s forwards,
+    doodle-fade-in 1.15s var(--ease-out-expo) 0.25s forwards,
     doodle-drift-b 24s ease-in-out -11s infinite;
 }
 
 .doodle-drift-c {
   animation:
-    doodle-fade-in 2s var(--ease-out-expo) 0.6s forwards,
+    doodle-fade-in 1.15s var(--ease-out-expo) 0.25s forwards,
     doodle-drift-c 32s ease-in-out -7s infinite;
 }
 
 .doodle-drift-d {
   animation:
-    doodle-fade-in 2s var(--ease-out-expo) 0.6s forwards,
+    doodle-fade-in 1.15s var(--ease-out-expo) 0.25s forwards,
     doodle-drift-d 25s ease-in-out -15s infinite;
 }
 
 .doodle-drift-e {
   animation:
-    doodle-fade-in 2s var(--ease-out-expo) 0.6s forwards,
+    doodle-fade-in 1.15s var(--ease-out-expo) 0.25s forwards,
     doodle-drift-e 31s ease-in-out -2s infinite;
 }
 
 .doodle-drift-f {
   animation:
-    doodle-fade-in 2s var(--ease-out-expo) 0.6s forwards,
+    doodle-fade-in 1.15s var(--ease-out-expo) 0.25s forwards,
     doodle-drift-f 22s ease-in-out -19s infinite;
 }
 
@@ -1191,23 +1121,10 @@ button.card-link {
     margin-top: 0.65rem;
   }
 
-  .hero-quote-carousel {
-    gap: 0.4rem;
-    margin-top: 0.75rem;
-  }
-
-  .hero-quote {
-    max-width: 11.5em;
-  }
-
-  .hero-quote p {
-    font-size: clamp(1.05rem, 4.8vw, 1.45rem);
-  }
-
-  .quote-nav {
-    width: 2rem;
-    height: 2rem;
-    font-size: 0.95rem;
+  .hero-welcome {
+    max-width: 18em;
+    font-size: clamp(1rem, 3.6vw, 1.2rem);
+    line-height: 1.42;
   }
 
   .scroll-hint {
@@ -1296,7 +1213,7 @@ button.card-link {
   }
 
   .doodle {
-    animation: doodle-fade-in 2s var(--ease-out-expo) 0.6s forwards !important;
+    animation: doodle-fade-in 1.15s var(--ease-out-expo) 0.25s forwards !important;
   }
 }
 
@@ -1310,7 +1227,7 @@ button.card-link {
   }
 
   .doodle {
-    animation: doodle-fade-in 2s var(--ease-out-expo) 0.6s forwards !important;
+    animation: doodle-fade-in 1.15s var(--ease-out-expo) 0.25s forwards !important;
   }
 }
 
