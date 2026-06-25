@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#fffce8">
+
+  <title>Gallery — Dylan Gaetano Combatti</title>
+  <meta name="description" content="Photo gallery — Dylan Gaetano Combatti.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..1000;1,9..40,300..1000&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <nav class="site-nav" aria-label="Main navigation">
+    <a href="index.html#socials" class="site-nav-link">Socials</a>
+    <a href="gallery.html" class="site-nav-link is-active">Gallery</a>
+    <a href="index.html#contact" class="site-nav-link">Contact</a>
+  </nav>
+
+  <div class="page-frame" aria-hidden="true">
+    <span class="frame-corner frame-tl"></span>
+    <span class="frame-corner frame-tr"></span>
+    <span class="frame-corner frame-bl"></span>
+    <span class="frame-corner frame-br"></span>
+    <span class="frame-edge frame-top"></span>
+    <span class="frame-edge frame-bottom"></span>
+    <span class="frame-edge frame-left"></span>
+    <span class="frame-edge frame-right"></span>
+    <span class="frame-gem frame-gem-top"></span>
+    <span class="frame-gem frame-gem-bottom"></span>
+    <span class="frame-gem frame-gem-left"></span>
+    <span class="frame-gem frame-gem-right"></span>
+  </div>
+
+  <main class="gallery-page">
+    <a href="index.html" class="back-link">← Home</a>
+
+    <header class="gallery-page-header">
+      <h1>Gallery</h1>
+      <p>Photos and moments.</p>
+    </header>
+
+    <div class="gallery-grid gallery-grid--three gallery-grid--full" data-gallery></div>
+  </main>
+
+  <div class="lightbox" id="lightbox" hidden aria-hidden="true">
+    <button type="button" class="lightbox-close" id="lightbox-close" aria-label="Close gallery view">&times;</button>
+    <img class="lightbox-img" id="lightbox-img" src="" alt="">
+    <p class="lightbox-caption" id="lightbox-caption"></p>
+  </div>
+
+  <script src="nav.js"></script>
+  <script src="gallery.js"></script>
+</body>
+</html>
