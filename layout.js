@@ -1,18 +1,19 @@
 (function () {
   var root = document.documentElement;
+  var resizeTimer;
 
   function syncViewport() {
-    var height = window.visualViewport
-      ? window.visualViewport.height
-      : window.innerHeight;
-    root.style.setProperty("--app-height", height + "px");
+    root.style.setProperty("--app-height", window.innerHeight + "px");
   }
 
   syncViewport();
-  window.addEventListener("resize", syncViewport, { passive: true });
-  window.addEventListener("orientationchange", syncViewport, { passive: true });
 
-  if (window.visualViewport) {
-    window.visualViewport.addEventListener("resize", syncViewport, { passive: true });
-  }
+  window.addEventListener("orientationchange", function () {
+    setTimeout(syncViewport, 150);
+  });
+
+  window.addEventListener("resize", function () {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(syncViewport, 200);
+  });
 })();
