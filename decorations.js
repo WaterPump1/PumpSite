@@ -90,6 +90,19 @@
             '<path d="M26 18 L32 10 L38 18"/>' +
           "</g>" +
         "</g>" +
+        '<g id="sketch-bee" stroke-linecap="round" stroke-linejoin="round">' +
+          '<g fill="none" stroke="#9eb8d4" stroke-width="1.35" opacity="0.65">' +
+            '<path d="M21 30 C17 26 15 22 18 19 C21 22 22 26 24 29"/>' +
+            '<path d="M43 30 C47 26 49 22 46 19 C43 22 42 26 40 29"/>' +
+          "</g>" +
+          '<ellipse cx="32" cy="35" rx="11" ry="8.5" fill="#f5d04a" stroke="#c49a00" stroke-width="1.5"/>' +
+          '<path d="M24 33h16M24 37h16" stroke="#4a4030" stroke-width="1.25" opacity="0.75"/>' +
+          '<circle cx="32" cy="26" r="5.5" fill="#f5d04a" stroke="#c49a00" stroke-width="1.4"/>' +
+          '<path d="M28 22 C26 18 24 15 22 13 M36 22 C38 18 40 15 42 13" fill="none" stroke="#4a4030" stroke-width="1.15"/>' +
+          '<circle cx="22" cy="13" r="1.1" fill="#4a4030" stroke="none"/>' +
+          '<circle cx="42" cy="13" r="1.1" fill="#4a4030" stroke="none"/>' +
+          '<path d="M30 27 L31 28 M33 27 L34 28" stroke="#4a4030" stroke-width="1" opacity="0.7"/>' +
+        "</g>" +
       "</defs>" +
     "</svg>";
 
@@ -134,6 +147,11 @@
       "</div>" +
       '<div class="mountain-tree" style="--size: 48px; left: 94%; bottom: 12%; --rot: 6deg;">' +
         '<svg viewBox="0 0 64 64" aria-hidden="true"><use href="#sketch-tree"/></svg>' +
+      "</div>" +
+      '<div class="mountain-bee" aria-hidden="true">' +
+        '<div class="mountain-bee-inner">' +
+          '<svg viewBox="0 0 64 64" aria-hidden="true"><use href="#sketch-bee"/></svg>' +
+        "</div>" +
       "</div>";
     mountain.appendChild(trees);
   }
