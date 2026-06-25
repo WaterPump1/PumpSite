@@ -1,0 +1,14 @@
+window.GALLERY_PHOTOS = [
+  { url: "images/gallery/dsc00032.JPG", caption: "Gallery" },
+  { url: "images/gallery/DSC00212.JPG", caption: "Gallery" },
+  { url: "images/gallery/DSC00381.JPG", caption: "Gallery" },
+  { url: "images/gallery/IMG_0782.JPG", caption: "Gallery" },
+  { url: "images/gallery/IMG_0783.JPG", caption: "Gallery" },
+  { url: "images/gallery/IMG_0786.JPG", caption: "Gallery" },
+  { url: "images/gallery/IMG_1566.JPG", caption: "Gallery" },
+  { url: "images/gallery/IMG_3603.JPEG", caption: "Gallery" },
+  { url: "images/gallery/IMG_6636.jpg", caption: "Gallery" },
+  { url: "images/gallery/IMG_9216.PNG", caption: "Gallery" },
+  { url: "images/gallery/jepppp.JPG", caption: "Gallery" },
+  { url: "images/gallery/photo for print V.2.PNG", caption: "Gallery" }
+];

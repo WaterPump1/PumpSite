@@ -36,7 +36,7 @@
     <span class="frame-gem frame-gem-right"></span>
   </div>
 
-  <main class="gallery-page">
+  <main class="gallery-page gallery-page--carousel">
     <a href="index.html" class="back-link">← Home</a>
 
     <header class="gallery-page-header">
@@ -44,7 +44,7 @@
       <p>Photos and moments.</p>
     </header>
 
-    <div class="gallery-grid gallery-grid--three gallery-grid--full" data-gallery></div>
+    <div class="gallery-carousel" data-gallery data-gallery-mode="carousel" aria-label="Photo carousel"></div>
   </main>
 
   <div class="lightbox" id="lightbox" hidden aria-hidden="true">
@@ -54,6 +54,7 @@
   </div>
 
   <script src="nav.js"></script>
+  <script src="gallery-data.js"></script>
   <script src="gallery.js"></script>
 </body>
 </html>
