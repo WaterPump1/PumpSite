@@ -1,4 +1,137 @@
 (function () {
+// GALLERY_PHOTOS_START
+var GALLERY_PHOTOS_EMBEDDED = [
+  {
+    "url": "images/gallery/70028244843__AD8BD5C1-57B9-4D0F-976F-ED7B63A2BF79.fullsizerender.jpg",
+    "caption": "Gallery"
+  },
+  {
+    "url": "images/gallery/dsc00032.JPG",
+    "caption": "Gallery"
+  },
+  {
+    "url": "images/gallery/DSC00212.JPG",
+    "caption": "Gallery"
+  },
+  {
+    "url": "images/gallery/DSC00381.JPG",
+    "caption": "Gallery"
+  },
+  {
+    "url": "images/gallery/IMG_0310.jpg",
+    "caption": "Gallery"
+  },
+  {
+    "url": "images/gallery/IMG_0424.jpg",
+    "caption": "Gallery"
+  },
+  {
+    "url": "images/gallery/IMG_0469.jpg",
+    "caption": "Gallery"
+  },
+  {
+    "url": "images/gallery/IMG_0522.jpg",
+    "caption": "Gallery"
+  },
+  {
+    "url": "images/gallery/IMG_0782.JPG",
+    "caption": "Gallery"
+  },
+  {
+    "url": "images/gallery/IMG_0783.JPG",
+    "caption": "Gallery"
+  },
+  {
+    "url": "images/gallery/IMG_0786.JPG",
+    "caption": "Gallery"
+  },
+  {
+    "url": "images/gallery/IMG_1160.jpg",
+    "caption": "Gallery"
+  },
+  {
+    "url": "images/gallery/IMG_1193.jpg",
+    "caption": "Gallery"
+  },
+  {
+    "url": "images/gallery/IMG_1204.jpg",
+    "caption": "Gallery"
+  },
+  {
+    "url": "images/gallery/IMG_1231.jpg",
+    "caption": "Gallery"
+  },
+  {
+    "url": "images/gallery/IMG_1554.jpg",
+    "caption": "Gallery"
+  },
+  {
+    "url": "images/gallery/IMG_1566.JPG",
+    "caption": "Gallery"
+  },
+  {
+    "url": "images/gallery/IMG_2198.jpg",
+    "caption": "Gallery"
+  },
+  {
+    "url": "images/gallery/IMG_2201.jpg",
+    "caption": "Gallery"
+  },
+  {
+    "url": "images/gallery/IMG_3603.JPEG",
+    "caption": "Gallery"
+  },
+  {
+    "url": "images/gallery/IMG_6636.jpg",
+    "caption": "Gallery"
+  },
+  {
+    "url": "images/gallery/IMG_6641.jpg",
+    "caption": "Gallery"
+  },
+  {
+    "url": "images/gallery/IMG_7628.jpg",
+    "caption": "Gallery"
+  },
+  {
+    "url": "images/gallery/IMG_7918.jpg",
+    "caption": "Gallery"
+  },
+  {
+    "url": "images/gallery/IMG_8903.jpg",
+    "caption": "Gallery"
+  },
+  {
+    "url": "images/gallery/IMG_9200.jpg",
+    "caption": "Gallery"
+  },
+  {
+    "url": "images/gallery/IMG_9216.PNG",
+    "caption": "Gallery"
+  },
+  {
+    "url": "images/gallery/IMG_9499.jpg",
+    "caption": "Gallery"
+  },
+  {
+    "url": "images/gallery/IMG_9527.jpg",
+    "caption": "Gallery"
+  },
+  {
+    "url": "images/gallery/IMG_9660.jpg",
+    "caption": "Gallery"
+  },
+  {
+    "url": "images/gallery/jepppp.JPG",
+    "caption": "Gallery"
+  },
+  {
+    "url": "images/gallery/photo for print V.2.PNG",
+    "caption": "Gallery"
+  }
+];
+// GALLERY_PHOTOS_END
+
   var lightbox = document.getElementById("lightbox");
   var lightboxImg = document.getElementById("lightbox-img");
   var lightboxCaption = document.getElementById("lightbox-caption");
@@ -254,6 +387,17 @@
     bindLightbox();
   }
 
+  function shufflePhotos(photos) {
+    var shuffled = photos.slice();
+    for (var i = shuffled.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var temp = shuffled[i];
+      shuffled[i] = shuffled[j];
+      shuffled[j] = temp;
+    }
+    return shuffled;
+  }
+
   function normalizePhotos(data) {
     if (Array.isArray(data)) return data;
     if (data && Array.isArray(data.photos)) return data.photos;
@@ -261,9 +405,16 @@
   }
 
   function renderAllGalleries(photos) {
+    var randomized = shufflePhotos(photos);
+    var countEl = document.getElementById("gallery-count");
+
+    if (countEl) {
+      countEl.textContent = randomized.length + " photos";
+    }
+
     document.querySelectorAll("[data-gallery]").forEach(function (container) {
       var limit = container.getAttribute("data-limit");
-      var slice = limit ? photos.slice(0, parseInt(limit, 10)) : photos;
+      var slice = limit ? randomized.slice(0, parseInt(limit, 10)) : randomized;
       var mode = container.getAttribute("data-gallery-mode") || "grid";
 
       if (mode === "carousel") {
@@ -274,8 +425,18 @@
     });
   }
 
+  function getGalleryPhotos() {
+    var fromWindow = normalizePhotos(window.GALLERY_PHOTOS);
+    var fromEmbedded = normalizePhotos(
+      typeof GALLERY_PHOTOS_EMBEDDED !== "undefined" ? GALLERY_PHOTOS_EMBEDDED : []
+    );
+
+    if (fromEmbedded.length >= fromWindow.length) return fromEmbedded;
+    return fromWindow;
+  }
+
   function loadGalleries() {
-    var photos = normalizePhotos(window.GALLERY_PHOTOS);
+    var photos = getGalleryPhotos();
 
     if (photos.length) {
       renderAllGalleries(photos);
@@ -285,7 +446,7 @@
     if (location.protocol === "file:") {
       document.querySelectorAll("[data-gallery]").forEach(function (container) {
         container.innerHTML =
-          '<p class="gallery-empty">No photos listed. Add images to <code>images/gallery/</code> and list them in <code>gallery-data.js</code>.</p>';
+          '<p class="gallery-empty">No photos listed. Add images to <code>images/gallery/</code> and run <code>npm run build:gallery</code>.</p>';
       });
       return;
     }
@@ -296,12 +457,18 @@
         return res.json();
       })
       .then(function (data) {
-        renderAllGalleries(normalizePhotos(data));
+        var fetched = normalizePhotos(data);
+        var best = fetched.length > photos.length ? fetched : photos;
+        if (best.length) {
+          renderAllGalleries(best);
+        } else {
+          throw new Error("No photos");
+        }
       })
       .catch(function () {
         document.querySelectorAll("[data-gallery]").forEach(function (container) {
           container.innerHTML =
-            '<p class="gallery-empty">Could not load gallery. Add photos in <code>gallery-data.js</code> or <code>data/gallery.json</code>.</p>';
+            '<p class="gallery-empty">Could not load gallery. Run <code>npm run build:gallery</code> after adding photos.</p>';
         });
       });
   }

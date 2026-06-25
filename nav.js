@@ -16,7 +16,7 @@
     clearActive();
     links.forEach(function (link) {
       var href = link.getAttribute("href") || "";
-      if (section === "socials" && href.indexOf("#socials") !== -1) {
+      if (section === "main" && (href.indexOf("#top") !== -1 || href === "index.html")) {
         link.classList.add("is-active");
       }
       if (section === "gallery" && href.indexOf("gallery") !== -1) {
@@ -33,6 +33,11 @@
     return;
   }
 
+  if (window.location.pathname.includes("contact")) {
+    setActive("contact");
+    return;
+  }
+
   links.forEach(function (link) {
     link.addEventListener("click", function (e) {
       var href = link.getAttribute("href");
@@ -41,6 +46,9 @@
         var target = document.querySelector(href);
         if (target) {
           target.scrollIntoView({ behavior: "smooth" });
+          history.pushState(null, "", href);
+        } else if (href === "#top") {
+          window.scrollTo({ top: 0, behavior: "smooth" });
           history.pushState(null, "", href);
         }
       }
@@ -51,15 +59,12 @@
 
   function onScroll() {
     var scrollY = window.scrollY + nav.offsetHeight + 100;
-    var current = "socials";
-    var sections = ["socials", "contact"];
+    var current = "main";
+    var contactEl = document.getElementById("contact");
 
-    sections.forEach(function (id) {
-      var el = document.getElementById(id);
-      if (el && el.offsetTop <= scrollY) {
-        current = id;
-      }
-    });
+    if (contactEl && contactEl.offsetTop <= scrollY) {
+      current = "contact";
+    }
 
     setActive(current);
   }

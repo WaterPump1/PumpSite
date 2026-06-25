@@ -1,0 +1,23 @@
+{
+  "name": "pumpsite",
+  "version": "1.0.0",
+  "main": "decorations.js",
+  "scripts": {
+    "build:gallery": "node scripts/build-gallery.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WaterPump1/PumpSite.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/WaterPump1/PumpSite/issues"
+  },
+  "homepage": "https://github.com/WaterPump1/PumpSite#readme",
+  "description": "",
+  "dependencies": {
+    "heic-convert": "^2.1.0"
+  }
+}

@@ -14,9 +14,9 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..1000;1,9..40,300..1000&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="page-gallery">
   <nav class="site-nav" aria-label="Main navigation">
-    <a href="index.html#socials" class="site-nav-link">Socials</a>
+    <a href="index.html" class="site-nav-link">Main page</a>
     <a href="gallery.html" class="site-nav-link is-active">Gallery</a>
     <a href="index.html#contact" class="site-nav-link">Contact</a>
   </nav>
@@ -36,15 +36,17 @@
     <span class="frame-gem frame-gem-right"></span>
   </div>
 
-  <main class="gallery-page gallery-page--carousel">
+  <main class="gallery-page gallery-page--grid">
     <a href="index.html" class="back-link">← Home</a>
 
     <header class="gallery-page-header">
       <h1>Gallery</h1>
-      <p>Photos and moments.</p>
+      <p>Photos and moments. <span id="gallery-count"></span></p>
     </header>
 
-    <div class="gallery-carousel" data-gallery data-gallery-mode="carousel" aria-label="Photo carousel"></div>
+    <div class="gallery-scroll" aria-label="Scrollable photo gallery">
+      <div class="gallery-grid gallery-grid--page" data-gallery></div>
+    </div>
   </main>
 
   <div class="lightbox" id="lightbox" hidden aria-hidden="true">
@@ -53,8 +55,8 @@
     <p class="lightbox-caption" id="lightbox-caption"></p>
   </div>
 
+  <script src="decorations.js"></script>
   <script src="nav.js"></script>
-  <script src="gallery-data.js"></script>
-  <script src="gallery.js"></script>
+  <script src="gallery.js?v=32"></script>
 </body>
 </html>
